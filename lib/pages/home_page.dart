@@ -26,11 +26,13 @@ class _HomePageState extends State<HomePage> {
       "title": "Nike Jordan",
       "price": "302.00",
       "image": "assets/images/nike_orange_white.png",
+      "like": false,
     },
     {
       "title": "Nike Air Max",
       "price": "752.00",
       "image": "assets/images/nike_blue.png",
+      "like": false,
     }
   ];
 
@@ -123,27 +125,43 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    width: double.infinity,
-                                    height: 115,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            "${popularShoes[index]['image']}"),
-                                        fit: BoxFit.cover,
+                              SizedBox(
+                                height: 115,
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      width: double.infinity,
+                                      // height: 115,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              "${popularShoes[index]['image']}"),
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const Positioned(
-                                    left: 5,
-                                    child: Icon(
-                                      Icons.favorite_border,
-                                      size: 20,
+                                    Positioned(
+                                      left: 5,
+                                      child: InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            popularShoes[index]['like'] =
+                                                !popularShoes[index]['like'];
+                                          });
+                                        },
+                                        child: Icon(
+                                          popularShoes[index]['like']
+                                              ? Icons.favorite
+                                              : Icons.favorite_border,
+                                          size: 20,
+                                          color: popularShoes[index]['like']
+                                              ? redC
+                                              : blackC,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               CustomText(
                                   text: "BEST SELLER",
@@ -235,11 +253,11 @@ class _HomePageState extends State<HomePage> {
                         height: 100,
                         child: Image.asset("assets/images/shoes_purple.png"),
                       ),
-                    )
+                    ).animate().fade(duration: 500.ms).slideY()
                   ],
                 ),
               ),
-            )
+            ).animate().fade(duration: 400.ms).effect()
           ],
         ),
       ),

@@ -13,11 +13,11 @@ class NavigationBarItems extends StatefulWidget {
 
 class _NavigationBarItemsState extends State<NavigationBarItems> {
   List<Widget> body = [
-    HomePage(),
-    Icon(Icons.favorite),
-    Icon(Icons.favorite),
-    Icon(Icons.notifications_none),
-    Icon(Icons.person),
+    const HomePage(),
+    const Icon(Icons.favorite),
+    const Icon(Icons.favorite),
+    const Icon(Icons.notifications_none),
+    const Icon(Icons.person),
   ];
 
   List items = [
@@ -60,7 +60,6 @@ class _NavigationBarItemsState extends State<NavigationBarItems> {
                   if (index != 2) {
                     return InkWell(
                       onTap: () {
-                        print("object");
                         setState(() {
                           _selectedIndex = index;
                         });
@@ -83,12 +82,12 @@ class _NavigationBarItemsState extends State<NavigationBarItems> {
       ).animate().fade(delay: 400.ms).slideY(curve: Curves.easeOut),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _onItemTapped(4),
-        child: Icon(
+        child: const Icon(
           Icons.shopping_bag,
           color: whiteC,
         ),
         backgroundColor: primaryC,
-      ).animate().fade(delay: 800.ms).slide(curve: Curves.easeIn),
+      ).animate().fade(delay: 600.ms).slide(curve: Curves.easeIn),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -76,7 +76,7 @@ class MyAppBar extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.search_sharp,
                               size: 24,
                             ),
