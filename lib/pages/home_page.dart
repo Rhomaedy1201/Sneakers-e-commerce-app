@@ -95,6 +95,7 @@ class _HomePageState extends State<HomePage> {
               child: GridView.builder(
                 itemCount: popularShoes.length,
                 shrinkWrap: true,
+                padding: const EdgeInsets.all(0),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 20,
@@ -191,6 +192,52 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ).animate().fade(duration: 400.ms).effect();
                 },
+              ),
+            ),
+            spaceHeight(22),
+            subFutures("New Arrivals", true),
+            spaceHeight(15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: double.infinity,
+                height: 95,
+                decoration: BoxDecoration(
+                  color: whiteC,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: const [
+                    BoxShadow(
+                      blurRadius: 5,
+                      color: Color(0xFFE6E6E6),
+                      offset: Offset(0, 3),
+                    )
+                  ],
+                ),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Container(
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/bg_arrivals.png"),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 40,
+                      bottom: 17,
+                      child: SizedBox(
+                        height: 100,
+                        child: Image.asset("assets/images/shoes_purple.png"),
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ],
