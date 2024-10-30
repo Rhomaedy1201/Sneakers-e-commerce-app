@@ -80,7 +80,7 @@ class _NavigationBarItemsState extends State<NavigationBarItems> {
                 },
               ),
             )),
-      ),
+      ).animate().fade(delay: 400.ms).slideY(curve: Curves.easeOut),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _onItemTapped(4),
         child: Icon(
