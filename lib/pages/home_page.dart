@@ -33,6 +33,18 @@ class _HomePageState extends State<HomePage> {
       "price": "752.00",
       "image": "assets/images/nike_blue.png",
       "like": false,
+    },
+    {
+      "title": "Nike Jordan",
+      "price": "302.00",
+      "image": "assets/images/nike_orange_white.png",
+      "like": false,
+    },
+    {
+      "title": "Nike Air Max",
+      "price": "752.00",
+      "image": "assets/images/nike_blue.png",
+      "like": false,
     }
   ];
 
@@ -90,6 +102,52 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             spaceHeight(22),
+            subFutures("New Arrivals", true),
+            spaceHeight(15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: double.infinity,
+                height: 95,
+                decoration: BoxDecoration(
+                  color: whiteC,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: const [
+                    BoxShadow(
+                      blurRadius: 5,
+                      color: Color(0xFFE6E6E6),
+                      offset: Offset(0, 3),
+                    )
+                  ],
+                ),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Container(
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/bg_arrivals.png"),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 40,
+                      bottom: 17,
+                      child: SizedBox(
+                        height: 100,
+                        child: Image.asset("assets/images/shoes_purple.png"),
+                      ),
+                    ).animate().fade(duration: 500.ms).slideY()
+                  ],
+                ),
+              ),
+            ).animate().fade(duration: 400.ms).effect(),
+            spaceHeight(22),
             subFutures("Popular Shoes", true),
             spaceHeight(15),
             Padding(
@@ -102,7 +160,9 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 20,
                   childAspectRatio: 0.8,
+                  mainAxisSpacing: 15,
                 ),
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Container(
                     decoration: BoxDecoration(
@@ -212,52 +272,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-            spaceHeight(22),
-            subFutures("New Arrivals", true),
-            spaceHeight(15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                width: double.infinity,
-                height: 95,
-                decoration: BoxDecoration(
-                  color: whiteC,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: const [
-                    BoxShadow(
-                      blurRadius: 5,
-                      color: Color(0xFFE6E6E6),
-                      offset: Offset(0, 3),
-                    )
-                  ],
-                ),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Container(
-                        width: double.infinity,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("assets/images/bg_arrivals.png"),
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      right: 40,
-                      bottom: 17,
-                      child: SizedBox(
-                        height: 100,
-                        child: Image.asset("assets/images/shoes_purple.png"),
-                      ),
-                    ).animate().fade(duration: 500.ms).slideY()
-                  ],
-                ),
-              ),
-            ).animate().fade(duration: 400.ms).effect()
+            spaceHeight(100),
           ],
         ),
       ),
