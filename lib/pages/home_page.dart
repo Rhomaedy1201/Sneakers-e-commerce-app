@@ -60,15 +60,15 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            spaceHeight(12),
+            spaceHeight(22),
             subFutures("Select Category", false),
             spaceHeight(15),
             SizedBox(
               height: 43,
               child: ListView.builder(
                 itemCount: categoryName.length,
-                scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.only(left: 20),
                 itemBuilder: (context, index) {
                   return Padding(
@@ -88,11 +88,11 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.symmetric(horizontal: 25),
                           child: Center(
                             child: CustomText(
-                              text: categoryName[index],
-                              color: selectCategory == index ? whiteC : blackC,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
+                                text: categoryName[index],
+                                color:
+                                    selectCategory == index ? whiteC : blackC,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                       ),
@@ -110,16 +110,14 @@ class _HomePageState extends State<HomePage> {
                 width: double.infinity,
                 height: 95,
                 decoration: BoxDecoration(
-                  color: whiteC,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: const [
-                    BoxShadow(
-                      blurRadius: 5,
-                      color: Color(0xFFE6E6E6),
-                      offset: Offset(0, 3),
-                    )
-                  ],
-                ),
+                    color: whiteC,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: const [
+                      BoxShadow(
+                          blurRadius: 5,
+                          color: Color(0xFFE6E6E6),
+                          offset: Offset(0, 3))
+                    ]),
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
@@ -136,13 +134,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Positioned(
-                      right: 40,
-                      bottom: 17,
-                      child: SizedBox(
-                        height: 100,
-                        child: Image.asset("assets/images/shoes_purple.png"),
-                      ),
-                    ).animate().fade(duration: 500.ms).slideY()
+                        right: 40,
+                        bottom: 17,
+                        child: SizedBox(
+                          height: 100,
+                          child: Image.asset("assets/images/shoes_purple.png"),
+                        )).animate().fade(duration: 500.ms).slideY()
                   ],
                 ),
               ),
@@ -191,35 +188,32 @@ class _HomePageState extends State<HomePage> {
                                   children: [
                                     Container(
                                       width: double.infinity,
-                                      // height: 115,
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
                                           image: AssetImage(
                                               "${popularShoes[index]['image']}"),
-                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
                                     Positioned(
-                                      left: 5,
-                                      child: InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            popularShoes[index]['like'] =
-                                                !popularShoes[index]['like'];
-                                          });
-                                        },
-                                        child: Icon(
-                                          popularShoes[index]['like']
-                                              ? Icons.favorite
-                                              : Icons.favorite_border,
-                                          size: 20,
-                                          color: popularShoes[index]['like']
-                                              ? redC
-                                              : blackC,
-                                        ),
-                                      ),
-                                    ),
+                                        left: 5,
+                                        child: InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              popularShoes[index]['like'] =
+                                                  !popularShoes[index]['like'];
+                                            });
+                                          },
+                                          child: Icon(
+                                            popularShoes[index]['like']
+                                                ? Icons.favorite
+                                                : Icons.favorite_border,
+                                            size: 20,
+                                            color: popularShoes[index]['like']
+                                                ? redC
+                                                : blackC,
+                                          ),
+                                        ))
                                   ],
                                 ),
                               ),
@@ -254,21 +248,17 @@ class _HomePageState extends State<HomePage> {
                               decoration: const BoxDecoration(
                                 color: primaryC,
                                 borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(16),
-                                  topLeft: Radius.circular(16),
-                                ),
+                                    bottomRight: Radius.circular(16),
+                                    topLeft: Radius.circular(16)),
                               ),
-                              child: const Icon(
-                                Icons.add,
-                                size: 20,
-                                color: Colors.white,
-                              ),
+                              child: const Icon(Icons.add,
+                                  size: 20, color: whiteC),
                             )
                           ],
-                        ),
+                        )
                       ],
                     ),
-                  ).animate().fade(duration: 400.ms).effect();
+                  );
                 },
               ),
             ),

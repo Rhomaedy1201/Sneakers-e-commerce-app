@@ -12,14 +12,15 @@ class MyAppBar extends StatelessWidget {
     return AppBar(
       clipBehavior: Clip.none,
       backgroundColor: whiteC_200,
+      shadowColor: whiteC_200,
+      elevation: 0,
+      surfaceTintColor: whiteC_200,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
             width: 30,
-            child: Image.asset(
-              "assets/icons/icon_drawer.png",
-            ),
+            child: Image.asset("assets/icons/icon_drawer.png"),
           ).animate().fade(delay: 400.ms),
           SizedBox(
             height: 45,
@@ -35,7 +36,10 @@ class MyAppBar extends StatelessWidget {
                   color: whiteC,
                 ),
                 child: Center(
-                  child: Image.asset("assets/icons/bag.png", height: 24),
+                  child: Image.asset(
+                    "assets/icons/bag.png",
+                    height: 24,
+                  ),
                 ),
               ),
               Positioned(
@@ -45,13 +49,13 @@ class MyAppBar extends StatelessWidget {
                   width: 10,
                   height: 10,
                   decoration: BoxDecoration(
-                    color: redC,
                     borderRadius: BorderRadius.circular(10),
+                    color: redC,
                   ),
                 ),
               )
             ],
-          ).animate().fade(delay: 300.ms),
+          ).animate().fade(delay: 300.ms)
         ],
       ),
       bottom: PreferredSize(
@@ -82,16 +86,15 @@ class MyAppBar extends StatelessWidget {
                             ),
                             spaceWidth(10),
                             CustomText(
-                              text: "Loking for shoes",
-                              color: greyC_800,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            )
+                                text: "Loking for shoes",
+                                color: greyC_800,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500)
                           ],
                         ),
                       ),
                     ),
-                  ),
+                  ).animate().fade(delay: 300.ms),
                   spaceWidth(15),
                   Expanded(
                     flex: 1,
@@ -99,20 +102,20 @@ class MyAppBar extends StatelessWidget {
                       width: double.infinity,
                       height: 52,
                       decoration: BoxDecoration(
-                        color: primaryC,
-                        borderRadius: BorderRadius.circular(50),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/icons/search_filter.png"),
-                            scale: 2),
-                      ),
+                          color: primaryC,
+                          borderRadius: BorderRadius.circular(50),
+                          image: const DecorationImage(
+                              image:
+                                  AssetImage("assets/icons/search_filter.png"),
+                              scale: 2)),
                     ),
-                  ),
+                  ).animate().fade(delay: 400.ms)
                 ],
               ),
             ),
-            spaceHeight(10),
+            spaceHeight(10)
           ],
-        ).animate().fade(delay: 400.ms),
+        ),
       ),
     );
   }
