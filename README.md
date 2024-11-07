@@ -1,4 +1,4 @@
-# travelling_app
+# Sneakers-e-commerce
 
 ## Getting Started
 
